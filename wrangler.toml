@@ -1,6 +1,7 @@
 type = "webpack"
 zone_id = ""
 account_id = ""
+name = ""
 route = ""
 workers_dev = true
 webpack_config = "webpack.config.js"
