@@ -9,12 +9,15 @@
     "format": "prettier --write '**/*.{ts,js,css,json,md}'",
     "test:clean": "rimraf ./transpiled/src ./transpiled/test",
     "test": "npm run test:clean && npm run transpile && mocha --require source-map-support/register --recursive transpiled/test",
-    "transpile": "tsc --project ./test"
+    "transpile": "tsc --project ./test",
+    "deploy": "wrangler publish",
+    "serve": "wrangler dev"
   },
   "author": "author",
   "license": "MIT OR Apache-2.0",
   "devDependencies": {
     "@cloudflare/workers-types": "^2.1.0",
+    "@cloudflare/wrangler": "^1.12.2",
     "@types/chai": "^4.2.14",
     "@types/mocha": "^8.0.4",
     "chai": "^4.2.0",
