@@ -1,5 +1,7 @@
+import { describe, it } from "mocha"
 import { expect } from "chai"
-import { handleRequest } from "../src/handler"
+import { handleRequest } from "./handler"
+import "./_setup"
 
 describe("handler returns response with request method", () => {
 	const methods = ["GET", "HEAD", "POST", "PUT", "DELETE", "CONNECT", "OPTIONS", "TRACE", "PATCH"]
