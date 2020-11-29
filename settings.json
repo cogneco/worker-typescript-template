@@ -1,0 +1,16 @@
+{
+	"files.exclude": {
+		".*": true,
+		"*.json": true,
+		"dist": true,
+		"node_modules": true,
+		"extensions.csproj": true,
+		"bin": true,
+		"obj": true,
+		"README.md": true,
+		"tslint.json": true
+	},
+	"editor.tabSize": 2,
+	"editor.detectIndentation": false,
+	"editor.insertSpaces": false
+}
