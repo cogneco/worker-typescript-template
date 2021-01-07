@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./transpiled/",
+    "outDir": "./dist/",
     "target": "es2019",
     "module": "es2015",
     "sourceMap": true,
@@ -18,7 +18,8 @@
 		"alwaysStrict": true,
 		"strict": true,
 		"allowJs": true
-
-  },
-  "include": ["*.spec.ts", "./node_modules/@cloudflare/workers-types/index.d.ts"]
+	},
+	"typeAcquisition": {
+		"enable": true
+	}
 }

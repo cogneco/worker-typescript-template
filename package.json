@@ -3,14 +3,41 @@
   "version": "0.0.0",
   "description": "Cloudflare worker TypeScript template",
   "main": "dist/worker.production.js",
+  "jest": {
+    "transform": {
+      "^.+\\.(j|t)sx?$": "ts-jest"
+    },
+    "transformIgnorePatterns": [
+      "node_modules/(?!(cryptly|authly|@payfunc/model|@payfunc/model-card|gracely|isoly|servly|cloud-router|cloud-http)/.*)"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsconfig": "tsconfig.test.json",
+        "setTimeout": 2000
+      }
+    },
+    "testEnvironment": "node",
+    "testRegex": "((\\.|/)(test|spec))(\\.|\\/.+)(jsx?|tsx?)$",
+    "testPathIgnorePatterns": [
+      "node_modules/",
+      "dist/"
+    ],
+    "collectCoverageFrom": [
+      "**/*.{ts,tsx,js,jsx}",
+      "!**/node_modules/**",
+      "!**/dist/**"
+    ],
+    "preset": "ts-jest",
+    "testMatch": null
+  },
   "scripts": {
     "build": "webpack",
     "dev": "NODE_ENV=development npm run build",
     "lint": "eslint '**/*.{ts,tsx}'",
     "fix": "eslint '**/*.{ts,tsx}' --fix",
     "clean": "rimraf dist node_modules coverage",
-    "test:clean": "rimraf ./transpiled/*",
-    "test": "npm run test:clean && npm run transpile && mocha --require source-map-support/register --recursive transpiled",
+    "test": "jest --maxWorkers=2",
+    "test:watch": "watch jest",
     "transpile": "tsc --project tsconfig.test.json",
     "deploy": "wrangler publish",
     "serve": "wrangler dev",
@@ -22,20 +49,23 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^2.1.0",
     "@cloudflare/wrangler": "^1.12.3",
-    "@types/chai": "^4.2.14",
-    "@types/mocha": "^8.0.4",
+    "@types/jest": "^26.0.20",
     "@types/service-worker-mock": "^2.0.1",
     "@typescript-eslint/eslint-plugin": "4.8.2",
     "@typescript-eslint/parser": "4.8.2",
-    "chai": "^4.2.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^26.6.3",
     "cloudflare-worker-local": "^1.13.0",
     "eslint": "7.14.0",
     "eslint-plugin-prettierx": "github:nilssonemma/eslint-plugin-prettierx#master",
-    "mocha": "^8.2.1",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "isomorphic-fetch": "^3.0.0",
+    "jest": "^26.6.3",
     "prettierx": "github:simonmika/prettierx#newline-before-clause",
     "rimraf": "^3.0.2",
     "service-worker-mock": "^2.0.5",
     "terser-webpack-plugin": "^5.0.3",
+    "ts-jest": "^26.4.4",
     "ts-loader": "^8.0.11",
     "typescript": "^4.1.2",
     "webpack": "^5.7.0",
