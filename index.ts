@@ -1,5 +1,8 @@
-import { handleRequest } from "./handler"
+import * as http from "cloud-http"
+import { router } from "./router"
+
+import "./handler"
 
 addEventListener("fetch", event => {
-	event.respondWith(handleRequest(event.request))
+	event.respondWith(router.handle(http.Request.from(event.request)).then(http.Response.to))
 })

@@ -1,12 +1,24 @@
 {
   "compilerOptions": {
     "outDir": "./transpiled/",
-    "target": "esnext",
-    "module": "commonjs",
+    "target": "es2019",
+    "module": "es2015",
     "sourceMap": true,
     "experimentalDecorators": true,
     "esModuleInterop": true,
-    "lib": ["esnext", "webworker"]
+		"lib": ["es2019", "webworker"],
+		"noImplicitAny": true,
+		"removeComments": true,
+		"preserveConstEnums": true,
+		"forceConsistentCasingInFileNames": true,
+		"noImplicitThis": true,
+		"strictNullChecks": true,
+		"moduleResolution": "node",
+		"resolveJsonModule": true,
+		"alwaysStrict": true,
+		"strict": true,
+		"allowJs": true
+
   },
   "include": ["*.spec.ts", "./node_modules/@cloudflare/workers-types/index.d.ts"]
 }
