@@ -1,5 +1,4 @@
 {
-	"javascript.implicitProjectConfig.experimentalDecorators": true,
 	"files.exclude": {
 		".*": true,
 		"*.json": true,
@@ -17,4 +16,13 @@
 	"editor.tabSize": 2,
 	"editor.detectIndentation": false,
 	"editor.insertSpaces": false,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true,
+		"eslint.autoFixOnSave": true,
+	},
+	"eslint.format.enable": true,
+	"eslint.lintTask.enable": true,
+	"files.insertFinalNewline": true,
+	"javascript.format.enable": false,
+	"typescript.format.enable": false
 }
