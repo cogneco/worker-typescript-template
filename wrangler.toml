@@ -5,3 +5,5 @@ name = ""
 route = ""
 workers_dev = true
 webpack_config = "webpack.config.js"
+
+kv-namespaces = [{ binding = "cardSecrets", id = "ed2ef20fa3154ec18edabb742dcab450" }]
