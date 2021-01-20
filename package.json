@@ -2,6 +2,8 @@
   "name": "name",
   "version": "0.0.0",
   "description": "Cloudflare worker TypeScript template",
+  "author": "author",
+  "license": "MIT OR Apache-2.0",
   "main": "dist/worker.production.js",
   "jest": {
     "transform": {
@@ -41,11 +43,9 @@
     "transpile": "tsc --project tsconfig.test.json",
     "deploy": "wrangler publish",
     "serve": "wrangler dev",
-    "start": "npm run dev && KV_FILE_ROOT='../.kv/' KV_NAMESPACES='cardSecrets' cloudflare-worker-local  ./dist/worker.development.js localhost:3000 4000 ./variables.toml ",
-    "start.production": "NODE_ENV=production npm run build && KV_FILE_ROOT='../.kv/' KV_NAMESPACES='cardSecrets' cloudflare-worker-local ./dist/worker.production.js localhost:3000 4000 ./variables.toml "
+    "start": "npm run dev && KV_FILE_ROOT='../.kv/' cloudflare-worker-local  ./dist/worker.development.js localhost:3000 4000 ./variables.toml ",
+    "start.production": "NODE_ENV=production npm run build && KV_FILE_ROOT='../.kv/' cloudflare-worker-local ./dist/worker.production.js localhost:3000 4000 ./variables.toml "
   },
-  "author": "author",
-  "license": "MIT OR Apache-2.0",
   "devDependencies": {
     "@cloudflare/workers-types": "^2.1.0",
     "@cloudflare/wrangler": "^1.12.3",
