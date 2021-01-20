@@ -17,7 +17,8 @@
 		"resolveJsonModule": true,
 		"alwaysStrict": true,
 		"strict": true,
-		"allowJs": true
+		"allowJs": true,
+    "types": ["@cloudflare/workers-types","node","jest"]
 	},
 	"typeAcquisition": {
 		"enable": true

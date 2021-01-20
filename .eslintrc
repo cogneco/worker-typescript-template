@@ -57,6 +57,7 @@
 						"smoothly",
 						"@payfunc/model-card",
 						"@payfunc/model",
+						"@payfunc/common-worker",
 						"@payfunc/cli-card",
 						"@payfunc/component",
 						"@payfunc/service",

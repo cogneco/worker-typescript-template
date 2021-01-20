@@ -2,13 +2,15 @@
   "name": "name",
   "version": "0.0.0",
   "description": "Cloudflare worker TypeScript template",
+  "author": "author",
+  "license": "MIT OR Apache-2.0",
   "main": "dist/worker.production.js",
   "jest": {
     "transform": {
       "^.+\\.(j|t)sx?$": "ts-jest"
     },
     "transformIgnorePatterns": [
-      "node_modules/(?!(cryptly|authly|@payfunc/model|@payfunc/model-card|gracely|isoly|servly|cloud-router|cloud-http)/.*)"
+      "node_modules/(?!(cryptly|authly|@payfunc|gracely|isoly|servly|cloud-router|cloud-http)/.*)"
     ],
     "globals": {
       "ts-jest": {
@@ -41,15 +43,14 @@
     "transpile": "tsc --project tsconfig.test.json",
     "deploy": "wrangler publish",
     "serve": "wrangler dev",
-    "start": "npm run dev && cloudflare-worker-local ./dist/worker.development.js localhost:3000 4000",
-    "start.production": "NODE_ENV=production npm run build && cloudflare-worker-local ./dist/worker.production.js localhost:3000 4000"
+    "start": "npm run dev && KV_FILE_ROOT='../.kv/' cloudflare-worker-local  ./dist/worker.development.js localhost:3000 4000 ./variables.toml ",
+    "start.production": "NODE_ENV=production npm run build && KV_FILE_ROOT='../.kv/' cloudflare-worker-local ./dist/worker.production.js localhost:3000 4000 ./variables.toml "
   },
-  "author": "author",
-  "license": "MIT OR Apache-2.0",
   "devDependencies": {
     "@cloudflare/workers-types": "^2.1.0",
     "@cloudflare/wrangler": "^1.12.3",
     "@types/jest": "^26.0.20",
+    "@types/node": "^14.14.21",
     "@types/service-worker-mock": "^2.0.1",
     "@typescript-eslint/eslint-plugin": "4.8.2",
     "@typescript-eslint/parser": "4.8.2",
@@ -72,7 +73,7 @@
     "webpack-cli": "^4.2.0"
   },
   "dependencies": {
-    "cloud-http": "0.0.9",
-    "cloud-router": "0.0.7"
+    "cloud-http": "0.0.18",
+    "cloud-router": "0.0.9"
   }
 }
