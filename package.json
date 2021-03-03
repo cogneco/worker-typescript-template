@@ -48,7 +48,7 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^2.1.0",
-    "@cloudflare/wrangler": "^1.12.3",
+    "@cloudflare/wrangler": "1.12.2",
     "@types/jest": "^26.0.20",
     "@types/node": "^14.14.21",
     "@types/service-worker-mock": "^2.0.1",
@@ -73,7 +73,7 @@
     "webpack-cli": "^4.2.0"
   },
   "dependencies": {
-    "cloud-http": "0.0.18",
-    "cloud-router": "0.0.9"
+    "cloud-http": "0.0.24",
+    "cloud-router": "0.0.13"
   }
 }
